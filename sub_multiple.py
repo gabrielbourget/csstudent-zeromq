@@ -6,10 +6,10 @@ socket.connect("tcp://localhost:2000")
 
 socket.setsockopt(zmq.SUBSCRIBE, b"")
 
-LISTENER = 0
+LISTENERS = [0, 1, 2, 3, 4, 5, 6, 7]
 
 while True:
   message = socket.recv_pyobj()
-  # if message.get(LISTENER) is not None:
-  #   print(message.get(LISTENER))
-  print(message)
+  message_index = list(message.keys())[0]
+  if message_index in LISTENERS:
+    print(message.get(LISTENERS[message_index]))

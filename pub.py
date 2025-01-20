@@ -1,4 +1,4 @@
-import pyzmq as zmq
+import zmq
 from time import sleep
 
 context = zmq.Context()
